@@ -1491,31 +1491,87 @@ var top_10 = [{
 ]
 }
 ]
-var top_10_country={};
-var color = getRandomColor();
-var c={};
-var key=top_10.map((d)=> {return Object.keys(d)[0]});
-for(var i=0;i<19;i++){
-  c[key[i]]=color[i];
-} 
-top_10_country["color"]=c;
-top_10_country["data"]=top_10;
-top_10_country["index"]={"year":0,"population":1};
-top_10_country["x_domain"]=[1950,2024];
-top_10_country["y_domain"]=[12295745,1441719852];
-top_10_country["legend_class"]='legend_area';
-top_10_country  ["start"]=2024;
- var chart =new Area_chart('#root>#content>.section>#populationChart_top20>#chart_container',top_10_country)
-
 function getRandomColor() {
     var letters = '0123456789ABCDEF';
     var res=[];
     for(var j=0;j<19;j++){
-    var color = '#';
-    for (var i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
-    }
-    res.push(color);
+        var color = '#';
+        for (var i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        res.push(color);
     }
     return res;
 }
+var colors=getRandomColor();
+function assign_data_to_json(){
+    var result =[];
+    for(var i=0;i<19;i++){
+        var json_object={};
+        json_object["type"]="line";
+        json_object["seriesname"]=Object.keys(top_10[i])[0];
+        json_object["data"]=Object.values(top_10[i])[0];
+        result.push(json_object);
+    }
+    return result;
+}
+ 
+var res_data=assign_data_to_json();
+var top_area = {
+    "metadata": {
+        "axes": {
+            "x": [0]
+            ,
+            "y": [[1]]
+        }
+    },
+    "columns": [
+        {
+            "dataindex": [0],
+            "columnname": "Year",
+            "datatype": "numeric"
+        },
+        {
+            "dataindex": [1],
+            "columnname": "population",
+            "datatype": "numeric"
+        }
+    ],
+    "seriesdata": {
+        "chartdata": res_data
+    }
+    , "legend": {
+        "colors": colors
+    },
+    "chart": {
+        "axes": {
+            "xaxis":
+            {
+                "label": {
+                    "text": "Year",
+                    "class": "x_axis"
+                }, "show": true
+            },
+            
+            "yaxis":
+            [{
+                "label": {
+                    "text": "Population", "class": "y_axis"
+                }, "show": true
+            }, {
+                "label": {
+                    "text": "Population",
+                    "class": "y_axis"
+                }, "show": false
+            }, {
+                "label": {
+                    "text": "Density",
+                    "class": "y_axis"
+                }, "show": false
+            }],
+            "rotated": true
+        },
+    }
+}
+
+ var chart =new Bar('#root>#content>.section>#populationChart_top20>#chart_container',top_area)

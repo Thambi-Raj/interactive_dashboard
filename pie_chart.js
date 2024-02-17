@@ -98,34 +98,214 @@ class Pie_chart {
         this.svg.selectAll('.add_opacity').attr('class', key[index]);
     }
 }
-var pie_chart_data = {};
-pie_chart_data["color"] = { "Children": "#ED8C8E", "Youth": "#559FE0", "middle_Aged": "#A1DFDF", "senior_citizen": "#77BAB8", "super_senior": "#4AC5A7" };
-pie_chart_data["index"] = { "Categories": 0, "count": 1 };
-pie_chart_data["data"] = [["Children", 1439491717],
-["Youth", 1028208369,],
-["middle_Aged", 3084625108],
-["senior_citizen", 1020299074], ["super_senior", 1328761585]]
-pie_chart_data["legend_class"] = 'legend_area_pie';
-pie_chart_data["percent"] = [18.2, 13.0, 39.0, 12.9, 16.8];
-
-var pie = new Pie_chart('#root>#content>.half_section>#age_group>#chart_container', pie_chart_data)
-var pie_chart_data1 = {};
-pie_chart_data1["color"] = { "Male": "#ED8C8E", "Female": "#559FE0", "Others": "#A1DFDF" };
-pie_chart_data1["index"] = { "Gender": 0, "count": 1 };
-pie_chart_data1["data"] = [["Male", 3801409659],
-["Female", 3679925456],
-["Others", 643624915]];
-pie_chart_data1["legend_class"] = 'legend_area_pie';
-pie_chart_data1["percent"] = [47.25, 45.74, 8];
-var pie1 = new Pie_chart('#root>#content>.half_section>#gender_dis>#chart_container', pie_chart_data1);
-
-var pie_chart_data2 = {};
-pie_chart_data2["color"] = { "Below_poverty": "#ED8C8E", "Poor": "#559FE0", "Middle_class": "#A1DFDF", "Rich": "#77BAB8", "Super_rich": "#4AC5A7" };
-pie_chart_data2["index"] = { "Quality": 0, "count": 1 };
-pie_chart_data2["data"] = [["Below_poverty", 812496003],
-["Poor", 2437488009],
-["Middle_class", 3249984012],
-["Rich", 1218744004], ["Super_rich", 406248001]];
-pie_chart_data2["legend_class"] = 'legend_area_pie';
-pie_chart_data2["percent"] = [10, 30, 40, 15, 5];
-var pie1 = new Pie_chart('#root>#content>.half_section>#quality>#chart_container', pie_chart_data2);
+var pie_charty_1 = {
+    "metadata": {
+      "axes": {
+        "x": [0]
+        ,
+        "y": [[1]]
+      }
+    },
+    "columns": [
+      {
+        "dataindex": [0],
+        "columnname": "Cateogory",
+        "datatype": "ordinal"
+      },
+      {
+        "dataindex": [1],
+        "columnname": "Population",
+        "datatype": "numeric"
+      },
+    ],
+    "seriesdata": {
+      "chartdata": [
+        {
+          "type": "pie",
+          "seriesname": "Area",
+          "data": [["Children", 1439491717],
+          ["Youth", 1028208369,],
+          ["middle_Aged", 3084625108],
+          ["senior_citizen", 1020299074], ["super_senior", 1328761585]]
+        }
+      ]
+    }
+    , "legend": {
+      "colors": [
+        "#ED8C8E",
+        '#559FE0',
+        '#A1DFDF',
+        '#77BAB8',
+        '#4AC5A7'
+      ]
+    },
+    "chart": {
+      "axes": {
+        "xaxis":
+        {
+          "label": {
+            "text": "Country",
+            "class": "y_axis"
+          }, "show": false
+        },
+  
+        "yaxis":
+          [{
+            "label": {
+              "text": "Area", "class": "y_axis"
+            }, "show": false
+          }, {
+            "label": {
+              "text": "Population",
+              "class": "y_axis"
+            }, "show": false
+          }, {
+            "label": {
+              "text": "Density",
+              "class": "y_axis"
+            }, "show": false
+          }],
+        "rotated": true
+      },
+    }
+  }
+  var pie_charty_2 = {
+    "metadata": {
+      "axes": {
+        "x": [0]
+        ,
+        "y": [[1]]
+      }
+    },
+    "columns": [
+      {
+        "dataindex": [0],
+        "columnname": "Category",
+        "datatype": "numeric"
+      },
+      {
+        "dataindex": [1],
+        "columnname": "Population",
+        "datatype": "numeric"
+      },
+    ],
+    "seriesdata": {
+      "chartdata": [
+        {
+          "type": "pie",
+          "seriesname": "Category",
+          "data": [["Male", 3801409659],
+          ["Female", 3679925456],
+          ["Others", 643624915]]
+        }
+      ]
+    }
+    , "legend": {
+      "colors": [
+        "#ED8C8E",
+        '#559FE0',
+        '#A1DFDF'
+      ]
+    },
+    "chart": {
+      "axes": {
+        "xaxis":
+        {
+          "label": {
+            "text": "Country",
+            "class": "y_axis"
+          }, "show": false
+        },
+  
+        "yaxis":
+          [{
+            "label": {
+              "text": "Area", "class": "y_axis"
+            }, "show": false
+          }, {
+            "label": {
+              "text": "Population",
+              "class": "y_axis"
+            }, "show": false
+          }, {
+            "label": {
+              "text": "Density",
+              "class": "y_axis"
+            }, "show": false
+          }],
+        "rotated": true
+      },
+    }
+  }
+  var pie_charty_3 = {
+    "metadata": {
+      "axes": {
+        "x": [0]
+        ,
+        "y": [[1]]
+      }
+    },
+    "columns": [
+      {
+        "dataindex": [0],
+        "columnname": "Category",
+        "datatype": "ordinal"
+      },
+      {
+        "dataindex": [1],
+        "columnname": "Population",
+        "datatype": "numeric"
+      },
+    ],
+    "seriesdata": {
+      "chartdata": [
+        {
+          "type": "pie",
+          "seriesname": "Category",
+          "data": [["Poor", 2437488009],
+          ["Middle_class", 3249984012],
+          ["Rich", 1218744004], ["Super_rich", 406248001]]
+        }
+      ]
+    }
+    , "legend": {
+      "colors": [
+        "#ED8C8E",
+        '#559FE0',
+        '#A1DFDF',
+        '#77BAB8'
+      ]
+    },
+    "chart": {
+      "axes": {
+        "xaxis":
+        {
+          "label": {
+            "text": "Country",
+            "class": "y_axis"
+          }, "show": false
+        },
+  
+        "yaxis":
+          [{
+            "label": {
+              "text": "Area", "class": "y_axis"
+            }, "show": false
+          }, {
+            "label": {
+              "text": "Population",
+              "class": "y_axis"
+            }, "show": false
+          }, {
+            "label": {
+              "text": "Density",
+              "class": "y_axis"
+            }, "show": false
+          }],
+        "rotated": true
+      },
+    }
+  }
+var pie = new Bar('#root>#content>.half_section>#age_group>#chart_container', pie_charty_1);
+var pie1 = new Bar('#root>#content>.half_section>#gender_dis>#chart_container', pie_charty_2);
+var pie2 = new Bar('#root>#content>.half_section>#quality>#chart_container', pie_charty_3);

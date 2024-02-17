@@ -20,11 +20,13 @@ class Area_chart {
             .x(function (d) { return x_scale(d[0]) })
             .y(function (d) { return y_scale(d[1]) }).curve(d3.curveCardinal.tension(0.5))
         var paths_data = data.data;
+        
         for (var i = 0; i < paths_data.length; i++) {
             var path_data = Object.values(paths_data[i])[0];
             var path_class = Object.keys(paths_data[i])[0];
             var classname = 'y_axis ' + path_class;
             if (!Object.keys(legend).includes(path_class)) {
+                
                 this.svg.append('path').attr('class', classname).attr('stroke', data.color[path_class]).attr('stroke-width', 2).datum(path_data).attr('d',  line_function).attr('fill', 'none')
             };
         }

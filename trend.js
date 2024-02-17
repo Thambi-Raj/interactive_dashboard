@@ -71,7 +71,7 @@ var Trend_data
 {"year": 2020, "population": 7840952880},
 {"year": 2021, "population": 7909295151}
 ];
-var er=Trend_data.map((d)=> { return [d.year,d.population]}).reverse();
+        var er=Trend_data.map((d)=> { return [d.year,d.population]}).reverse();
 var area_chart2={};
 area_chart2["color"]={"Trend":"#dc7062"};
 area_chart2["index"]={"year":0,"population":1};
@@ -80,9 +80,73 @@ area_chart2["y_domain"]=[2543130380,7909295151];
 area_chart2["data"]=[
         {"Trend":er}
 ];
+
 area_chart2["start"]=2021;
 area_chart2["legend_class"]='legend_area';
- var chart =new Area_chart('#root>#content>.section>#populationChart>#chart_container',area_chart2)
 
-
-    
+ var trend = {
+        "metadata": {
+          "axes": {
+            "x": [0]
+            ,
+            "y": [[1]]
+          }
+        },
+        "columns": [
+          {
+            "dataindex": [0],
+            "columnname": "Year",
+            "datatype": "numeric"
+          },
+          {
+            "dataindex": [1],
+            "columnname": "population",
+            "datatype": "numeric"
+          }
+        ],
+        "seriesdata": {
+          "chartdata": [
+            {
+              "type": "line",
+              "seriesname": "trend",
+              "data": er
+            }
+          ]
+        }
+        , "legend": {
+          "colors": [
+            '#FED17A',
+          ]
+        },
+        "chart": {
+          "axes": {
+            "xaxis":
+            {
+              "label": {
+                "text": "Year",
+                "class": "x_axis"
+              }, "show": true
+            },
+      
+            "yaxis":
+              [{
+                "label": {
+                  "text": "Population", "class": "y_axis"
+                }, "show": true
+              }, {
+                "label": {
+                  "text": "Population",
+                  "class": "y_axis"
+                }, "show": false
+              }, {
+                "label": {
+                  "text": "Density",
+                  "class": "y_axis"
+                }, "show": false
+              }],
+            "rotated": true
+          },
+        }
+}
+trend.seriesdata.chartdata[0]["add_rect"]=true;
+var Ba =new Bar('#root>#content>.section>#populationChart>#chart_container',trend)
