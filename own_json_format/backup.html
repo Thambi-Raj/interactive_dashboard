@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+         <!-- <script src="/src/lib/d3.js"></script> -->
+        <script src="https://d3js.org/d3.v4.min.js"></script>  
+        <script defer src="common_function.js"></script>
+        <script defer src="horizontal_bar.js"></script>
+        <script defer src="vertical_bar.js"></script>
+        <script defer src="pie_chart.js"></script>
+        <script defer src="area_chart.js"></script>
+        <script defer src="top_10.js"></script>
+        <script defer src="top_country.js"></script>
+        <script defer src="trend.js"></script>
+        <script defer src="horizontal_call.js"></script>
+
+</head>
+
+<body>
+    <div class="tooltip">
+<p>l,flm</p>
+    </div>
+    <div class="tool-area">
+        <div id="head">
+               <span id="bold">
+                   year 1980
+               </span>
+        </div>
+        <div id="cont">
+            
+        </div>
+    </div>  
+    <div id="root">
+        <div id="header">
+            <div id="content">
+                <div id="logo">
+                    <span id="line1">TR</span>
+                    <br>
+                    <span>Web</span>
+                </div>
+            </div>
+        </div>
+        <div id="content">
+            <div id="group1">
+                <div class="area" id="populationChart">
+                    <div id="title">
+                        <div class="content">
+
+                            <span>Global Population Trend Over Two Centuries (1950-2022)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="area" id="populationChart_top20">
+                    <div id="title">
+                        <div class="content">
+                            <span>Top 20 most populated countries from 1950 to 2022 </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="area" id="populationChart_highest_populated">
+                    <div id="title">
+                        <div class="content">
+                            <span>Top 3 countries with the highest and lowest population increase percentage (Last 50 years)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="group2">
+                <div class="area" id="pop_den">
+                    <div id="title">
+                        <div class="content">
+                            <span>Top 10 countries  with  land area , population and density  (2023) </span>
+                        </div>
+                    </div>
+                    <div id="filter">
+                        <div id="changeChart">
+                            <span>CHANGE CHART :</span>
+                            <div id="higher" class="on" onclick="high_low(this.id)">
+                                <span>Highest</span>
+                            </div>
+                            <div id="lower" class="" onclick="high_low(this.id)">
+                                <span>Lowest</span>
+                            </div>
+                        </div>
+                        <div id="sort">
+                            <span>SORT BY :</span>
+                            <div class="header_sort clicked" id="area" onclick="params_click(this.id)">
+                                <span>Area</span>
+                            </div>
+                            <div class="header_sort" id="population" onclick="params_click(this.id)">
+                                <span>Population</span>
+                                
+                            </div>
+                            <div class="header_sort " id="density" onclick="params_click(this.id)">
+                                <span>Density</span>
+                               
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="group3">
+                <div class="pie" id="age_group">
+                    <div id="title">
+                        <div class="content">
+                            <span>Age groups distribution</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="pie" id="gender_dis">
+                    <div id="title">
+                        <div class="content">
+                            <span>Gender distribution </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="pie" id="quality">
+                    <div id="title">
+                        <div class="content">
+                            <span>Quality of life distribution </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</body>
+
+
+
+<script>
+</script>
+
+</html>
