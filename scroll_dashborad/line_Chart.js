@@ -101,7 +101,12 @@ area_chart2["legend_class"]='legend_area';
           {
             "dataindex": [1],
             "columnname": "population",
-            "datatype": "numeric"
+            "datatype": "numeric",
+            "format":{
+              "suffix":'B',
+              "func":(b)=> Math.ceil(b/100000000),
+              "decimal":0
+            }
           }
         ],
         "seriesdata": {
@@ -125,7 +130,7 @@ area_chart2["legend_class"]='legend_area';
               "label": {
                 "text": "Year",
                 "class": "x_axis"
-              }, "show": true
+              }, "show": true,"start":true
             },
       
             "yaxis":
@@ -144,9 +149,9 @@ area_chart2["legend_class"]='legend_area';
                   "class": "y_axis"
                 }, "show": false
               }],
-            "rotated": true
+            "rotated": false
           },
         }
 }
 trend.seriesdata.chartdata[0]["add_rect"]=true;
-var Ba =new Bar('#root>#content>.section>#populationChart>#chart_container',trend)
+var Ba =new Bar('#root>#content>.section>#populationChart>#chart_container',trend);

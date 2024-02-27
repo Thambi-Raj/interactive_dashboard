@@ -1643,7 +1643,7 @@ var top_country = {
     "axes": {
       "x": [0]
       ,
-      "y": [[1], [2], [3]]
+      "y": [[1],[2],[3]]
     }
   },
   "columns": [
@@ -1655,12 +1655,22 @@ var top_country = {
     {
       "dataindex": [1],
       "columnname": "Area",
-      "datatype": "numeric"
-    },
+      "datatype": "numeric",
+      "format":{
+        "suffix":'sq',
+        "func":(b)=> Math.ceil(b/10000),
+        "decimal":0
+      }
+     },
     {
       "dataindex": [1],
       "columnname": "Population",
-      "datatype": "numeric"
+      "datatype": "numeric",
+      "format":{
+        "suffix":'B',
+        "func":(b)=> Math.ceil(b/100000000),
+        "decimal":0
+      }
     }
     , {
       "dataindex": [1],
@@ -1678,7 +1688,7 @@ var top_country = {
       }, {
         "type": "bar",
         "seriesname": "Population",
-        "yaxiscolumnorder": [1, 0],
+        "yaxiscolumnorder": [1,0],
         "data": []
       }, {
         "type": "bar",
@@ -1690,7 +1700,7 @@ var top_country = {
   }
   , "legend": {
     "colors": [
-      '#FED17A',
+      '#FEC186',
       '#83F2CB',
       '#9CD3FE'
     ]
@@ -1721,7 +1731,7 @@ var top_country = {
             "class": "y_axis"
           }, "show": false
         }],
-      "rotated": true
+      "rotated": false
     },
   }
 }
@@ -1733,7 +1743,7 @@ function high_low(name) {
     top_country.seriesdata.chartdata[1]["data"] = slice.map(d => [d[0], d[2]]);
     top_country.seriesdata.chartdata[2]["data"] = slice.map(d => [d[0], d[1]])
     document.querySelector('.on').classList.remove('on');
-    document.querySelector('#' + name).classList.add('on');console.log(top_country);
+    document.querySelector('#' + name).classList.add('on')
 
   }
   else {
@@ -1744,12 +1754,16 @@ function high_low(name) {
     document.querySelector('.on').classList.remove('on');
     document.querySelector('#' + name).classList.add('on');
   }
-  var verti = new Bar('#root>#content>.section>#pop_den>#chart_container', top_country);
+  document.querySelector('#root>#content>#chart_view_container>#pop_den>#chart_container>.legend_area').remove() ;
+  var verti = new Chart('#root>#content>#chart_view_container>#pop_den>#chart_container', top_country);
 }
+
+var prev = -1;
 function params_click(name) {
   listed_data = landkm_population.sort((a, b) => {
     return b[name] - a[name];
   })
+  var show_axis = name =="population" ?1: name =="area" ? 0: 2
   document.getElementsByClassName('clicked')[0].classList.remove('clicked')
   document.getElementById(name).classList.add('clicked');
   listed_data = landkm_population.map(d => { return [d.country, d.density, d.population, d.area] });
@@ -1757,11 +1771,15 @@ function params_click(name) {
   top_country.seriesdata.chartdata[0]["data"] = slice.map(d => [d[0], d[3]]);
   top_country.seriesdata.chartdata[1]["data"] = slice.map(d => [d[0], d[2]]);
   top_country.seriesdata.chartdata[2]["data"] = slice.map(d => [d[0], d[1]])
-  var l = document.querySelector('#root>#content>.section>#pop_den>#chart_container>.legend_area')
+  var l = document.querySelector('#root>#content>#chart_view_container>#pop_den>#chart_container>.legend_area')
   l ? l.remove() : '';
   document.querySelector('.on').classList.remove('on');
   document.querySelector('#higher').classList.add('on');
-  document.querySelector('#root>#content>#group2>#pop_den>#chart_container>.legend_area') ? document.querySelector('#root>#content>#group2>#pop_den>#chart_container>.legend_area').remove() : ''
-  var verti = new Bar('#root>#content>.section>#pop_den>#chart_container', top_country);
+  document.querySelector('#root>#content>#chart_view_container>#pop_den>#chart_container>.legend_area') ? document.querySelector('#root>#content>#chart_view_container>#pop_den>#chart_container>.legend_area').remove() : ''
+  top_country.chart.axes.yaxis[show_axis].show=true;
+  prev!=-1 && prev!=show_axis? top_country.chart.axes.yaxis[prev].show=false:'';
+  prev = show_axis
+ var verti = new Chart('#root>#content>#chart_view_container>#pop_den>#chart_container', top_country);
+
 }
 params_click('area');

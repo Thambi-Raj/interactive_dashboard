@@ -1491,10 +1491,10 @@ var top_10 = [{
 ]
 }
 ]
-function getRandomColor() {
+function getRandomColor(n) {
     var letters = '0123456789ABCDEF';
     var res=[];
-    for(var j=0;j<19;j++){
+    for(var j=0;j<n;j++){
         var color = '#';
         for (var i = 0; i < 6; i++) {
             color += letters[Math.floor(Math.random() * 16)];
@@ -1503,7 +1503,7 @@ function getRandomColor() {
     }
     return res;
 }
-var colors=getRandomColor();
+var colors=getRandomColor(19);
 function assign_data_to_json(){
     var result =[];
     for(var i=0;i<19;i++){
@@ -1515,8 +1515,8 @@ function assign_data_to_json(){
     }
     return result;
 }
- 
 var res_data=assign_data_to_json();
+// console.log(res_data);
 var top_area = {
     "metadata": {
         "axes": {
@@ -1534,10 +1534,16 @@ var top_area = {
         {
             "dataindex": [1],
             "columnname": "population",
-            "datatype": "numeric"
+            "datatype": "numeric",
+            "format":{
+                "suffix":'B',
+                "func":(b)=> Math.ceil(b/100000000),
+                "decimal":0
+              }
         }
     ],
     "seriesdata": {
+        "type":"line",
         "chartdata": res_data
     }
     , "legend": {
@@ -1550,7 +1556,7 @@ var top_area = {
                 "label": {
                     "text": "Year",
                     "class": "x_axis"
-                }, "show": true
+                }, "show": true,"start":true
             },
             
             "yaxis":
@@ -1569,9 +1575,9 @@ var top_area = {
                     "class": "y_axis"
                 }, "show": false
             }],
-            "rotated": true
+            "rotated": false
         },
     }
 }
-
+top.top_area.seriesdata.chartdata[0]["add_rect"]=true;
  var chart =new Bar('#root>#content>.section>#populationChart_top20>#chart_container',top_area)

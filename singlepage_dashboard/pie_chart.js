@@ -114,15 +114,19 @@ var pie_charty_1 = {
       },
       {
         "dataindex": [1],
-        "columnname": "Population",
-        "datatype": "numeric"
+        "columnname": "count",
+        "datatype": "numeric","format":{
+            "suffix":'B',
+            "func":(b)=> Math.ceil(b/100000000),
+            "decimal":0
+          }
       },
     ],
     "seriesdata": {
       "chartdata": [
         {
           "type": "pie",
-          "seriesname": "Area",
+          "seriesname": "Category",
           "data": [["Children", 1439491717],
           ["Youth", 1028208369,],
           ["middle_Aged", 3084625108],
@@ -134,7 +138,7 @@ var pie_charty_1 = {
       "colors": [
         "#ED8C8E",
         '#559FE0',
-        '#A1DFDF',
+        '#C1ABA6',
         '#77BAB8',
         '#4AC5A7'
       ]
@@ -144,7 +148,7 @@ var pie_charty_1 = {
         "xaxis":
         {
           "label": {
-            "text": "Country",
+            "text": "Category",
             "class": "y_axis"
           }, "show": false
         },
@@ -153,7 +157,7 @@ var pie_charty_1 = {
           [{
             "label": {
               "text": "Area", "class": "y_axis"
-            }, "show": false
+            }, "show":false
           }, {
             "label": {
               "text": "Population",
@@ -165,7 +169,7 @@ var pie_charty_1 = {
               "class": "y_axis"
             }, "show": false
           }],
-        "rotated": true
+        "rotated": false
       },
     }
   }
@@ -181,11 +185,11 @@ var pie_charty_1 = {
       {
         "dataindex": [0],
         "columnname": "Category",
-        "datatype": "numeric"
+        "datatype": "ordinal"
       },
       {
         "dataindex": [1],
-        "columnname": "Population",
+        "columnname": "count",
         "datatype": "numeric"
       },
     ],
@@ -204,7 +208,7 @@ var pie_charty_1 = {
       "colors": [
         "#ED8C8E",
         '#559FE0',
-        '#A1DFDF'
+        '#C1ABA6'
       ]
     },
     "chart": {
@@ -212,7 +216,7 @@ var pie_charty_1 = {
         "xaxis":
         {
           "label": {
-            "text": "Country",
+            "text": "Category",
             "class": "y_axis"
           }, "show": false
         },
@@ -233,7 +237,7 @@ var pie_charty_1 = {
               "class": "y_axis"
             }, "show": false
           }],
-        "rotated": true
+        "rotated": false
       },
     }
   }
@@ -253,7 +257,7 @@ var pie_charty_1 = {
       },
       {
         "dataindex": [1],
-        "columnname": "Population",
+        "columnname": "count",
         "datatype": "numeric"
       },
     ],
@@ -272,7 +276,7 @@ var pie_charty_1 = {
       "colors": [
         "#ED8C8E",
         '#559FE0',
-        '#A1DFDF',
+        '#C1ABA6',
         '#77BAB8'
       ]
     },
@@ -281,7 +285,7 @@ var pie_charty_1 = {
         "xaxis":
         {
           "label": {
-            "text": "Country",
+            "text": "Category",
             "class": "y_axis"
           }, "show": false
         },
@@ -306,6 +310,6 @@ var pie_charty_1 = {
       },
     }
   }
-var pie = new Bar('#root>#content>.half_section>#age_group>#chart_container', pie_charty_1);
-var pie1 = new Bar('#root>#content>.half_section>#gender_dis>#chart_container', pie_charty_2);
-var pie2 = new Bar('#root>#content>.half_section>#quality>#chart_container', pie_charty_3);
+var pie = new Chart('#root>#content>#chart_view_container>#age_group>#chart_container', pie_charty_1);
+var pie1 = new Chart('#root>#content>#chart_view_container>#gender_dis>#chart_container', pie_charty_2);
+var pie2 = new Chart('#root>#content>#chart_view_container>#quality>#chart_container', pie_charty_3);

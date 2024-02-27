@@ -21,7 +21,7 @@ body{
   width: 100%;
 }
 #root>#header>#left_pane{
-  width: 50%;
+  width: 70%;
   display: flex;
   align-items: center;
   height: 3vw;
@@ -60,14 +60,13 @@ body{
 #root > #content >.section> .full_width{
   border: 1px solid #DFE0E1;
   width: 100%; 
-  height: 28vw;
+  height: 20vw;
   background-color: #fff; 
   border-radius: .5vw;
   position: relative; 
 }
 #root > #content >.section #chart_container{
   display: flex;
-  
   width: 100%;
   height: calc(100% - 3vw);
   margin-top: .5vw;
@@ -83,6 +82,7 @@ body{
   font-weight:bold;
   color: #666666;
   border-radius:.5vw .5vw 0 0;
+  font-size: .75vw;
 }
 #root >#content > .section>  .full_width > #title > #left_pane{
   height:100%;  
@@ -118,37 +118,51 @@ body{
   border: 2px solid #DFE0E1;
   text-align: center;
   border-radius: 5vw;
-  padding: .2vw;
   background-color: #EFEDED;
   cursor: pointer;  
   margin-left: 1vw;
   font-size: .7vw;
   height: 1.5vw;
+  padding-top: .25vw;
 }
 #root > #content > .section >  .full_width > #filter > #left_pane > #lower{
   width: 10%;
   border: 2px solid #DFE0E1;
   text-align: center;
   border-radius: 5vw;
-  padding: .2vw;
   background-color: #EFEDED;
   cursor: pointer;
   margin-left: 1vw;
   font-size: .7vw;
   height: 1.5vw;
+  padding-top: .25vw;
+}
+#root > #content > .section >  .full_width > #filter > #right_pane>div{
+  width: 15%;
+  border: 2px solid #DFE0E1;
+  text-align: center;
+  border-radius: 5vw;
+  background-color: #EFEDED;
+  cursor: pointer;
+  margin-left: 1vw;
+  font-size: .7vw;
+  height: 1.5vw;
+  padding-top: 0.25vw;
 }
 #root > #content > .section >  .full_width > #filter > #left_pane > .on{
   background-color:#2B7EC6 !important;
   color: white;
   text-align: center;
   cursor: pointer;
+  
 }
 
 #root > #content > .section >  .full_width > #filter > #right_pane{
-  padding-left: 10vw;
+  padding-top: .3vw;
   width:40%;
   display: flex;
   align-items: center;
+  justify-content: center;
   font-size: .7vw;
 }
 #root > #content > .section >  .full_width > #filter > #right_pane>span:first-child{
@@ -157,23 +171,15 @@ body{
   font-size: .7vw;
   width: max-content;
 } 
-#root > #content > .section >  .full_width > #filter > #right_pane >div{
-  padding-left: 2vw;
-} 
-
-#root > #content > .section >  .full_width > #filter > #right_pane > .header_sort{
- display: flex;
- align-items: center;
- text-align: right;
- justify-content: space-between;
- cursor: pointer;
-}
 #root > #content > .section >  .full_width > #filter > #right_pane > .header_sort> .material-symbols-outlined{
   color: #2B7EC6;
   font-size: 1.1vw;
 }
 #root > #content > .section >  .full_width > #filter > #right_pane > .clicked{
-  color:#2B7EC6 ;
+  background-color:#2B7EC6 !important;
+  color: white;
+  text-align: center;
+  cursor: pointer;
 }
 
  #root > #content > .half_section  {
@@ -182,9 +188,9 @@ body{
   align-items: center;  
 }
 #root > #content > .half_section > .half_width{
-  width: 49.5%;
+  width: 30%;
   border: 1px solid #DFE0E1;
-  height: 28vw;
+  height: 25vw;
   border-radius:.5vw;
   background-color: #fff;
   position: relative;
@@ -195,15 +201,10 @@ body{
   align-items: center;
   width: 50%;
   padding-left: 1vw;
+  font-size: .75vw;
 }
-#root > #content > .half_section > .half_width:nth-child(even){
+#root > #content > .half_section > .half_width:not(:first-child){
   margin-left: .9vw;
-}
-#root > #content > .half_section > .half_width:not(:first-child):nth-child(odd) {
-  margin-top: .9vw;
-}
-#root > #content > .half_section > .half_width:not(:nth-child(2)):nth-child(even) {
-  margin-top: .9vw;
 }
 #root >#content >.half_section > .half_width >#title {
   height:2.5vw; 
@@ -213,13 +214,13 @@ body{
 }
 
 svg > .x_axis{
-transform: translate(10%,85%);
+transform: translate(10%,86%);
 }
 svg > .x_axis1{
   transform: translate(5%,2%);
 }
 svg > .y_axis{
-  transform: translate(10%, 0%);
+  transform: translate(10%, 1%);
   cursor: pointer;
 }
 svg > .y_axis1{
@@ -252,7 +253,7 @@ body > .show{
   z-index: 8;
   position: absolute;
   border-radius: 5px;
-  font-size: .7vw;  
+  font-size: .6vw;  
 }
 svg > .main_group{
   transform: translate(10%,0%);
@@ -261,8 +262,8 @@ svg > .horizontal_group{
    transform: translate(10%,0%);
 }
 .legend_row > .legend_icon{
-  width: .7vw;
-  height: .7vw;
+  width: .5vw;
+  height: .5vw;
 }
 .legend_row{
   display: flex;
@@ -272,13 +273,14 @@ svg > .horizontal_group{
 }
  .legend_row > span{
   padding-left: .5vw;
-  font-size: .7vw;
+  font-size: .6vw;
   color: #444;
 }
 
 .legend_area{
   width: 10%;
-  height: 23vw;
+  height: 17vw;
+  top: 1.5vw;
   overflow: auto;
   right: 0%;
   padding: 1%;
@@ -292,7 +294,7 @@ svg > .horizontal_group{
   transform: translate(50%,50%);
 }
 .legend_area_pie{
-  width: 20%;
+  width: 25%;
   right: 0;
   padding: 1vw;
   position: absolute;
@@ -303,7 +305,7 @@ svg > .horizontal_group{
 }
 .x_axis > path, .y_axis > path{
   stroke-width:.5;
-  stroke: #666;
+  stroke: #cccccc;
 }
 
 svg >  .x_label{
@@ -319,15 +321,14 @@ svg >  .x_label{
   transform: translate(-2%,12%);
  }
  .center_align >  text{
-  font-size: .8vw;
+  font-size: .6vw;
  }
  .color_change{
-  stroke-width:5;
+  stroke-width:4;
  }
-
  text:not( .center_align >  text){
-  fill: #666;
-  font-size: .70vw;
+  fill: #444;
+  font-size: .6vw;
  }
  .x_axis > g> line, .y_axis > g > line{
   stroke: none;
@@ -401,4 +402,11 @@ svg > .half_width_trans > path{
  .horizontal_group > g > path{
   stroke-width:.5;
   stroke: #666;
+}
+.path_line > path{
+  stroke-width: .5;
+    stroke: #666;
+}
+.path_line > g> line{
+ stroke: none;
 }

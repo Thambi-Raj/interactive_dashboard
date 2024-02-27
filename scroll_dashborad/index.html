@@ -5,34 +5,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">    
-        <script src="https://d3js.org/d3.v4.min.js"></script>  
-        <script defer src="common_function.js"></script>
-        <script defer src="final_script.js"></script>
-        <script defer src="horizontal_bar.js"></script>
-        <script defer src="vertical_bar.js"></script>
-        <script defer src="pie_chart.js"></script>
-        <script defer src="area_chart.js"></script>
-        <script defer src="top_10.js"></script>
-        <script defer src="top_country.js"></script>
-        <script defer src="trend.js"></script>
-        <script defer src="horizontal_call.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script defer src="final_script.js"></script>
+    <script defer src="horizontal_bar_data.js"></script>
+    <script defer src="vertical_call.js"></script>
+    <script defer src="pie_chart.js"></script>
+    <script defer src="line_Chart.js"></script>
+    <script defer src="high_populated_country.js"></script>
 </head>
 
 <body>
     <div class="tooltip">
-<p>l,flm</p>
+        <p>l,flm</p>
     </div>
     <div class="tool-area">
         <div id="head">
-               <span id="bold">
-                   year 1980
-               </span>
+            <span id="bold">
+                year 1980
+            </span>
         </div>
         <div id="cont">
-            
+
         </div>
-    </div>  
+    </div>
     <div id="root">
         <div id="header">
             <div id="left_pane">
@@ -45,7 +41,7 @@
         </div>
         <div id="content">
             <div class="section">
-                <div class="full_width" id="populationChart">
+                <div class="full_width modified_height" id="populationChart">
                     <div id="title">
                         <div id="left_pane">
 
@@ -63,26 +59,27 @@
                         </div>
                     </div>
                     <div id="chart_container">
-                        
+
                     </div>
                 </div>
                 <div class="full_width" id="populationChart_highest_populated">
                     <div id="title">
                         <div id="left_pane">
-                            <span>Top 3 countries with the highest and lowest population increase percentage (Last 50 years)</span>
+                            <span>Top 3 countries with the highest and lowest population increase percentage (Last 50
+                                years)</span>
                         </div>
                     </div>
                     <div id="chart_container">
-                        
+
                     </div>
-                    
+
                 </div>
             </div>
             <div class="section">
                 <div class="full_width" id="pop_den">
                     <div id="title">
                         <div id="left_pane">
-                            <span>Top 10 countries  with  land area , population and density  (2023) </span>
+                            <span>Top 10 countries with  land area , population and density (2023) </span>
                         </div>
                     </div>
                     <div id="filter">
@@ -96,23 +93,24 @@
                             </div>
                         </div>
                         <div id="right_pane">
-                            <span>SORT BY :</span>
-                            <div class="header_sort clicked" id="area" onclick="params_click(this.id)">
-                                <span>Area</span>
-                            </div>
-                            <div class="header_sort" id="population" onclick="params_click(this.id)">
-                                <span>Population</span>
-                                
-                            </div>
-                            <div class="header_sort " id="density" onclick="params_click(this.id)">
-                                <span>Density</span>
-                               
-                            </div>
+                            
+                                <span>SORT BY :</span>
+                                <div class="header_sort clicked" id="area" onclick="params_click(this.id)">
+                                    <span>Area</span>
+                                </div>
+                                <div class="header_sort" id="population" onclick="params_click(this.id)">
+                                    <span>Population</span>
 
+                                </div>
+                                <div class="header_sort " id="density" onclick="params_click(this.id)">
+                                    <span>Density</span>
+
+                                </div>
+                            
                         </div>
                     </div>
                     <div id="chart_container" class="with_filter">
-                        
+
                     </div>
                 </div>
             </div>
@@ -124,9 +122,9 @@
                         </div>
                     </div>
                     <div id="chart_container">
-                        
+
                     </div>
-                    
+
                 </div>
                 <div class="half_width" id="gender_dis">
                     <div id="title">
@@ -135,9 +133,9 @@
                         </div>
                     </div>
                     <div id="chart_container">
-                        
+
                     </div>
-                   
+
                 </div>
                 <div class="half_width" id="quality">
                     <div id="title">
@@ -146,12 +144,12 @@
                         </div>
                     </div>
                     <div id="chart_container">
-                        
+
                     </div>
-                   
+
                 </div>
             </div>
-            
+
         </div>
     </div>
 </body>
